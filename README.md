@@ -52,3 +52,8 @@ A programmer for the AVR architecture microcontroller, specifically the ATTiny84
       return 0;
   }
   ```
+- I then compiled and turned it into a `.bin` microcode binary file with the following bash sequence on Ubuntu (F_CPU is the clock speed of the controller in Hz required by the `delay.h` header):
+  - `avr-gcc -DF_CPU=1000000 -mmcu=attiny84a -O2 test.c -o fw.elf`
+  - `avr-objcopy -O binary fw.elf fw.bin`
+  - To see and read the underlying microcode bytes:
+    - `xxd -i fw.bin`
