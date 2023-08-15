@@ -7,6 +7,7 @@ A programmer for the AVR architecture microcontroller, specifically the ATTiny84
 ## Problem
 - Initially, the ATTiny did not respond to any of my SPI programming commands, eventually after a bit of back and fourth with Microchip support, we figured out that the ATTiny does not support programming via 3.3V which the Raspberry Pi Pico uses for GPIO logic; all SPI pins must use a logic voltage of 5V, simply supplying Vcc with 5V is not enough.
   - Luckily I managed to bypass the requirement for a 5V programming device by using a 3V3 5V logic converter which works by converting 3.3V signals to 5V signals, which effectively acts as a translator between the Pico and the ATTiny (PS. Any 3.3V to 5V logic converter PCB with support for at least 4 ports (MISO, MOSI, SCK, RESET) should work).
+  - It should be noted that not all ATTiny/AVR controllers have this restriction, some could be programmed with just the Pico's 3.3V signals, in which case translation through a logic converter is not needed; however as far as I am concerned the ATTiny84A does need 5V logic.
 
 ## How to use
 
