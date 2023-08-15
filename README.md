@@ -40,7 +40,7 @@ A programmer for the AVR architecture microcontroller, specifically the ATTiny84
   #include <util/delay.h>
   
   int main() {
-      DDRB = _BV(PA0);
+      DDRA = _BV(PA0);
   	
       while (1) {
           // Toggle port A.
