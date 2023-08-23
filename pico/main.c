@@ -53,7 +53,7 @@ int main() {
 
         if ((code_c % 2) != 0) {
             printf("program bytes are not a multiple of 2!\n");
-            return 0;
+            continue;
         }
 
         avr_spi_init();
