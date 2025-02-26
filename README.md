@@ -34,7 +34,7 @@ A programmer for the AVR architecture microcontroller, specifically the ATTiny84
 ## Writing code for AVR
 - This is a topic on it's own and may include a guide on programming the ATTiny84A controller as well as others, but in general you will need to install the AVR GCC compiler, AVR assembly compiler, as well as the headers for AVR programming.
 - Due to the nature of how the AVRs registers and control flow works, you will likely not have to write any assembly and can write the whole thing in C as the AVR GCC compiler already handles the interrupt vector table and layout of your program automatically - all you need to include is a main function written by yourself.
-- A sample script in C which toggles the `PA0` pin on and off every second using busy wait (I'm not entirely sure how it works since I have yet to completely learn the RISC/AVR architecture):
+- A sample script in C which toggles the `PA0` pin on and off every second using busy wait (quick rundown - DDRA=IO bank A, _BV(PA0)=Bit shift register key PA0 | basically all that is happening here is that the bit for register PA0 in bank A is being toggled on and off):
   ```c
   #include <avr/io.h>
   #include <util/delay.h>
